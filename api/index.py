@@ -4,13 +4,11 @@ from os import environ
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST'])
+@app.route('/')
 def slugify_text():
     """
-    Endpoint to accept POST requests and slugify text.
+    Endpoint to accept GET requests and slugify text.
     """
-    if request.method == 'POST':
-        body = request.json  # Get text from form data
-        text = body["text"]
-        slugified_text = slugify(text)
-        return jsonify({'slugified_text': slugified_text}), 200
+    text = request.args.get('text', '')  # Get text from query parameters
+    slugified_text = slugify(text)
+    return jsonify({'slugified_text': slugified_text}), 200

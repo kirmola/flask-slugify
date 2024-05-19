@@ -9,7 +9,6 @@ def slugify_text():
     Endpoint to accept POST requests and slugify text.
     """
     if request.method == 'POST':
-        text = request.form.get('text', '')  # Get text from form data
+        text = request.form.get('text')  # Get text from form data
         slugified_text = slugify(text)
-        print(slugified_text)
         return jsonify({'slugified_text': slugified_text}), 200

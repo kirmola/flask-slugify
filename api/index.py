@@ -11,4 +11,4 @@ def slugify_text():
     """
     text = request.args.get('text', '')  # Get text from query parameters
     slugified_text = slugify(text)
-    return jsonify({'slugified_text': slugified_text}), 200
+    return slugified_text, 200

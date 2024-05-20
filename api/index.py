@@ -34,4 +34,7 @@ def concat_list_in_cell():
     text = request.args.get("quote", "")
     img1_suffix = ["1.png", "1-thumb.png"]
     final_image_urls = [f"{text}-{i}" for i in img1_suffix]
-    return final_image_urls
+    json = {
+        "images":final_image_urls
+    }
+    return json
